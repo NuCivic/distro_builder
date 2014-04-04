@@ -21,6 +21,25 @@ cd $GIT_ROOT
 # Pull down latest copy of $DISTRO_DISPLAYNAME.
 bash scripts/distro.pull.sh
 
+if [ -d docroot/sites ];
+then
+  echo "Copying sites directory from docroot/sites"
+  rm -rf sites
+  cp -Rfp docroot/sites sites
+fi
+if [ -f docroot/.htaccess ];
+then
+  echo "Copying .htaccess from docroot/.htaccess"
+  rm .htaccess
+  cp docroot/.htaccess .htaccess
+fi
+if [ -f docroot/robots.txt ];
+then
+  echo "Copying robots.txt from docroot/robots.txt"
+  rm robots.txt
+  cp docroot/robots.txt robots.txt
+fi
+
 echo "Removing docroot"
 rm -rf docroot
  
@@ -28,17 +47,33 @@ echo "Building $DISTRO_DISPLAYNAME profile from makefile at path $MAKEPATH"
 drush make -y "$MAKEPATH" docroot --no-gitinfofile
 
 # Remove undesired .gitignore files.
-rm docroot/profiles/$DISTRO/.gitignore
-git clean -d docroot/profiles
-
-cd docroot
-echo "Copying sites directory to docroot/sites"
-rm -rf sites
-cp -Rfp ../sites sites
-echo "Copying .htaccess to docroot/.htaccess"
-rm .htaccess
-cp ../.htaccess .htaccess
-echo "Copying robots.txt to docroot/robots.txt"
-rm robots.txt
-cp ../robots.txt robots.txt
+cd docroot/profiles
+find . -name ".gitignore" -depth -exec rm {} \;
+cd ../sites
+find . -name ".gitignore" -depth -exec rm {} \;
 cd ../
+
+if [ -d sites ];
+then
+  echo "Copying sites directory to docroot/sites"
+  rm -rf docroot/sites
+  cp -Rfp sites docroot/sites
+else
+  cp -Rfp docroot/sites sites
+fi
+if [ -f .htaccess ];
+then
+  echo "Copying .htaccess to docroot/.htaccess"
+  rm docroot/.htaccess
+  cp .htaccess docroot/.htaccess
+else
+  cp -Rfp docroot/.htaccess .htaccess
+fi
+if [ -f robots.txt ];
+then
+  echo "Copying robots.txt to docroot/robots.txt"
+  rm docroot/robots.txt
+  cp robots.txt docroot/robots.txt
+else
+  cp docroot/robots.txt robots.txt
+fi
