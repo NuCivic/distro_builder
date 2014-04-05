@@ -5,7 +5,7 @@
 This repo lets you create a "distro builder" git repository for integrating development between
 the git repository for a Drupal distribution and an individual website based on that distro,
 hosted on Pantheon. To install it, edit the file 'builder.conf' with configuration to specify
-the distro and website information, and then execute the following command:
+your distro and website information, and then execute the following command:
 
 ````
 bash scripts/remotes.setup.sh
@@ -53,13 +53,23 @@ Other scripts perform supporting operations, as follows:
 * **remotes.setup.sh**: Initial setup of the distro builder and branches
 * **subtrees.setup.sh**: Initial setup of the distro builder subtrees (run one after the first run of remotes.setup.sh)
 
-### To build the full codebase
-
-    bash scripts/distro.rebuild.sh
-
-### To build the codebase with project overrides
+### To rebuild the codebase with project overrides
 
     bash scripts/distro.rebuild.sh override
+
+The "override" option tells distro builder to override the distro's drush makefile with overrides specified in file
+"override.make." If you want to add modules, libraries or themes to the sites/all directory (in addition to the
+distro-specific code that goes into the profiles directory), you can specify them in file "site-includes.make" and
+uncomment a line in "override.make" so they get included.
+
+If you run scripts/distro.rebuild.sh without the override option, it will rebuild a codebase based on the distro's
+drush make defaults. You should therefore normally include the override option so your customizations are not lost.
+
+The distro.rebuild script makes copies of the sites directory and the .htaccess and robots.txt files outside the Drupal
+docroot, and it uses those copies to overwrite whatever is created there by drush make. This ensures that any changes
+you have made affecting those files will be preserved. Sometimes, however, drush make adds its own libraries, modules
+or themes to the sites directory. The distro.rebuild script therefore saves the drush make version of the sites
+directory outside the docroot in a directory named sites.rebuilt so that its contents are available if you need them. 
 
 ### To pull the latest changes from the project into the distro builder branch
 

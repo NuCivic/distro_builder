@@ -36,7 +36,6 @@ else
   git remote add $DISTRO_REMOTE $DISTRO_REMOTE_URL
   git fetch $DISTRO_REMOTE
   git checkout -b $DISTRO_BRANCH_NAME $DISTRO_REMOTE/$DISTRO_BRANCH
-  echo 'Hey'
 fi
 
 # Use Pantheon's repo as the remote for the master branch

@@ -56,7 +56,8 @@ cd ../
 if [ -d sites ];
 then
   echo "Copying sites directory to docroot/sites"
-  rm -rf docroot/sites
+  rm -Rf sites.rebuilt
+  mv docroot/sites sites.rebuilt
   cp -Rfp sites docroot/sites
 else
   cp -Rfp docroot/sites sites
