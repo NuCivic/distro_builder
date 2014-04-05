@@ -14,6 +14,7 @@ if [[ -n "$BRANCH_EXISTS" ]]; then
   echo "Branch $PROJECT_BUILDER_BRANCH exists."
 else
   git checkout -b $PROJECT_BUILDER_BRANCH
+  git commit -am "Customize configuration settings for $PROJECT_BUILDER_BRANCH branch"
   git push -u origin $PROJECT_BUILDER_BRANCH
   git branch -d distro_builder
 fi
