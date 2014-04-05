@@ -7,7 +7,6 @@ projects[link][version] = 1.2
 projects[entityreference][version] = "1.1"
 projects[entityreference][download][revision] = 92747d9391443fb653a0044d9926e04402293f9a
 projects[search_api_db][version] = "1.0-rc2"
-projects[mail_edit][patch][1826220] = http://drupal.org/files/mail_edit-undefined_index_path-1826220-2.patch
 
 ; To put additional modules, themes and libraries in sites/all, uncomment this line and edit site-includes.make
 ; includes[] = sites-includes.make
@@ -17,6 +16,8 @@ projects[drupal][version] = "7.26"
 projects[drupal][download][type] = git
 projects[drupal][download][url] = https://github.com/pantheon-systems/drops-7.git
 projects[drupal][download][branch] = master
+; Reapply taxonomy permissions patch
+projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
 
 ; Uncomment this to use a specific git repo commit of the distro makefile.
 projects[opencivic][type] = profile
