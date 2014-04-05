@@ -10,6 +10,8 @@ git config --local push.default upstream
 
 # Checkout new branch of distro_builder for this project.
 git checkout -b $PROJECT_BUILDER_BRANCH
+git push -u origin $PROJECT_BUILDER_BRANCH
+
 # However, the origin branch should be renamed so the Pantheon website can be the origin branch.
 TRACKING_REMOTE="$(git config branch.$PROJECT_BUILDER_BRANCH.remote)"
 if [ "$TRACKING_REMOTE" == "origin" ]; then
