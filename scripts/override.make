@@ -2,7 +2,7 @@ api = 2
 core = 7.x
 
 ; Include distro's make file.
-includes[opencivic] = "../projects/opencivic/build-opencivic.make"
+; includes[opencivic] = "../projects/opencivic/build-opencivic.make"
 
 ; Uncomment this to use a specific git repo commit of the distro makefile.
 projects[opencivic][type] = profile
