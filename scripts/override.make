@@ -29,3 +29,4 @@ projects[entityreference][version] = "1.1"
 projects[entityreference][download][revision] = 92747d9391443fb653a0044d9926e04402293f9a
 projects[search_api_db][version] = "1.0-rc2"
 projects[mail_edit][patch][1826220] = http://drupal.org/files/mail_edit-undefined_index_path-1826220-2.patch
+projects[panopoly_core][patch][1962642] = http://drupal.org/files/1962642-defaultconfig.undefinedindex-2.patch
