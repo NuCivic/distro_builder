@@ -4,8 +4,8 @@ core = 7.x
 ; Include distro's make file.
 includes[opencivic] = "../projects/opencivic/build-opencivic.make"
 
-; Add some modules, themes and libraries to sites/all
-includes[] = sites-includes.make
+; To put additional modules, themes and libraries in sites/all, uncomment this line and edit site-includes.make
+; includes[] = sites-includes.make
 
 ; Use Pantheon's Pressflow version of Drupal 7.26 instead of OpenCivic's version.
 projects[drupal][version] = "7.26"
