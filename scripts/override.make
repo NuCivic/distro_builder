@@ -16,8 +16,6 @@ projects[drupal][version] = "7.26"
 projects[drupal][download][type] = git
 projects[drupal][download][url] = https://github.com/pantheon-systems/drops-7.git
 projects[drupal][download][branch] = master
-; Reapply taxonomy permissions patch
-; projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
 
 ; Uncomment this to use a specific git repo commit of the distro makefile.
 projects[opencivic][type] = profile
