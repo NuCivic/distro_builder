@@ -3,6 +3,11 @@ core = 7.x
 
 ; Include distro's make file.
 includes[opencivic] = "../projects/opencivic/build-opencivic.make"
+projects[link][version] = 1.2
+projects[entityreference][version] = "1.1"
+projects[entityreference][download][revision] = 92747d9391443fb653a0044d9926e04402293f9a
+projects[search_api_db][version] = "1.0-rc2"
+projects[mail_edit][patch][1826220] = http://drupal.org/files/mail_edit-undefined_index_path-1826220-2.patch
 
 ; To put additional modules, themes and libraries in sites/all, uncomment this line and edit site-includes.make
 ; includes[] = sites-includes.make
@@ -21,11 +26,6 @@ projects[opencivic][download][branch] = 7.x-2.x
 ; If you want to specify a version of the distro, uncomment this line and put in the correct version, e.g., 1.2, beta1, etc.
 ; projects[opencivic][version] = alpha1
 ; If you want to specify a specific commit of the distro, uncomment this line and put in the commit SHA.
-projects[opencivic][download][revision] = 3fa3894c3e989117965343e60a7d98541b3a298e
+projects[opencivic][download][revision] = dabe640aae87ba137db790987c63cc0a0f9c2456
 
 
-projects[link][version] = 1.2
-projects[entityreference][version] = "1.1"
-projects[entityreference][download][revision] = 92747d9391443fb653a0044d9926e04402293f9a
-projects[search_api_db][version] = "1.0-rc2"
-projects[mail_edit][patch][1826220] = http://drupal.org/files/mail_edit-undefined_index_path-1826220-2.patch
