@@ -13,5 +13,5 @@ cd "$(git rev-parse --show-toplevel)"
 find . -name ".DS_Store" -depth -exec rm {} \;
 git checkout $DISTRO_BRANCH_NAME
 git pull --rebase
-git checkout distro_builder
+git checkout $PROJECT_BUILDER_BRANCH
 git merge --squash -s subtree --no-commit $DISTRO_BRANCH_NAME

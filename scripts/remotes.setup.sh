@@ -8,12 +8,12 @@ fi
 # Configure push default to push to upstream remotes without requiring matching remote names.
 git config --local push.default upstream
 
-# The branch for the distro builder was added manually, so this line isn't necessary.
-# git checkout -b distro_builder
+# Checkout new branch of distro_builder for this project.
+git checkout -b $PROJECT_BUILDER_BRANCH
 # However, the origin branch should be renamed so the Pantheon website can be the origin branch.
-TRACKING_REMOTE="$(git config branch.distro_builder.remote)"
+TRACKING_REMOTE="$(git config branch.$PROJECT_BUILDER_BRANCH.remote)"
 if [ "$TRACKING_REMOTE" == "origin" ]; then
-  echo "Renaming distro_builder remote to $PROJECT_INTEGRATION_REMOTE"
+  echo "Renaming $PROJECT_BUILDER_BRANCH remote to $PROJECT_INTEGRATION_REMOTE"
   git remote rename origin $PROJECT_INTEGRATION_REMOTE
 else
   echo "Distro builder remote is '$TRACKING_REMOTE'"
@@ -31,7 +31,6 @@ else
 fi
 
 # Use Pantheon's repo as the remote for the master branch
-# These lines are unnecessary when adding distro_builder to an existing clone of the Pantheon site.
 TRACKING_REMOTE="$(git config branch.master.remote)"
 if [ "$TRACKING_REMOTE" == "origin" ]; then
   echo "The website on Pantheon is being tracked on remote 'origin' at branch 'master'"
@@ -39,7 +38,7 @@ else
   git remote add origin $WEBSITE_REMOTE_URL
   git fetch origin
   git checkout -b master origin/master
-  git checkout distro_builder
+  git checkout $PROJECT_BUILDER_BRANCH
 fi
 
 if [ -d docroot ]; then

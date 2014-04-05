@@ -11,7 +11,7 @@ echo "Pulling in latest updates on branch $DISTRO_BRANCH from remote $GITURL."
 # Change to git root directory.
 cd "$(git rev-parse --show-toplevel)"
 find . -name ".DS_Store" -depth -exec rm {} \;
-git checkout distro_builder
+git checkout $PROJECT_BUILDER_BRANCH
 git pull --rebase
 git checkout master
-git merge --squash -s subtree --no-commit distro_builder
+git merge --squash -s subtree --no-commit $PROJECT_BUILDER_BRANCH
