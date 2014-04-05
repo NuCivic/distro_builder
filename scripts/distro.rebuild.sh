@@ -51,7 +51,7 @@ cd docroot/profiles
 find . -name ".gitignore" -depth -exec rm {} \;
 cd ../sites
 find . -name ".gitignore" -depth -exec rm {} \;
-cd ../
+cd ../../
 
 if [ -d sites ];
 then
