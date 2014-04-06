@@ -15,12 +15,12 @@ includes[opencivic] = "../projects/opencivic/build-opencivic.make"
 ; projects[opencivic][download][revision] = dabe640aae87ba137db790987c63cc0a0f9c2456
 
 ; Use Pantheon's Pressflow version of Drupal 7.26 instead of OpenCivic's version.
-projects[drupal][version] = "7.26"
-projects[drupal][download][type] = git
-projects[drupal][download][url] = https://github.com/pantheon-systems/drops-7.git
-projects[drupal][download][branch] = master
+; projects[drupal][version] = "7.26"
+; projects[drupal][download][type] = git
+; projects[drupal][download][url] = https://github.com/pantheon-systems/drops-7.git
+; projects[drupal][download][branch] = master
 ; Reapply taxonomy permissions patch
-projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
+; projects[drupal][patch][995156] = http://drupal.org/files/issues/995156-5_portable_taxonomy_permissions.patch
 
 projects[link][version] = 1.2
 projects[entityreference][version] = "1.1"
