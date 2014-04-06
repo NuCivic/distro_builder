@@ -37,9 +37,26 @@ It contains the following files and directories:
 * **robots.txt**: a copy of the robots.txt file from docroot
 * **sites**: a copy of the sites directory from docroot
 
+### Config
+
+The distro builder _config_ directory contains several files that can be used to customize your distro. These should be the only files you need to
+modify to customize distro_builder to work with your website project and distro. The files in the _config_ directory specify information including:
+(1) the names and git remote URLs of the distro used to build your website, as well as of the website itself; (2) any overrides or patches that you
+want made to the distro itself (such as changing the release version of Drupel modules); and (3) any libraries, modules or themes that you are
+adding beyond what is provided by the distro itself. The _config_ directory contains the following files:
+
+* **builder.conf**: Fill this in before you run scripts/remotes.setup.sh.
+* **override.make**: Use this to specify that override the distro's default make files. Changes you can make here include: using a different
+version of Drupal core; specifying a specific branch or release version tag for the distro; applying a patch to the distro; and specifying if
+you are adding additional modules, libraries or themes beyond the standard code that is included in the distro itself.
+* **distro.patch** (optional): The actual patch that you want made against the distro.
+* **sites-includes.make** (optional): A makefile containing the actual list of modules, libraries and themes that should be added to the sites/all directory.
+
+For further information about how to modify these configuration for your website project, read the comments inside each of the included files.
+
 ### Scripts
 
-The distro builder _scripts_ directory contains the following bash scripts, which can be used to perform operations including the following:
+The distro builder _scripts_ directory contains the following bash scripts, which can be used to perform operations including:
 
 * **distro.rebuild.sh**: use drush make to rebuild the docroot, after pulling the latest changes from the distro and applying overrides
 * **website.get.changes.sh**: pull changes from the website to the distro builder docroot
