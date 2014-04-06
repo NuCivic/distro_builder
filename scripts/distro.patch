@@ -24,7 +24,7 @@ index d2e50cd..2e7aa81 100755
  
  ; This dev release fixes a bug with devel_generate integration
 -projects[entityreference][version] = "1.x-dev"
-+projects[entityreference][version] = "1.2"
++projects[entityreference][version] = "1.1"
  projects[entityreference][subdir] = "contrib"
 -projects[entityreference][download][url] = "http://git.drupal.org/project/entityreference.git"
 -projects[entityreference][download][revision] = 06089a92ee8b269f153064ad3090ce6b464f38aa
