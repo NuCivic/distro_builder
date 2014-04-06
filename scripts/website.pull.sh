@@ -6,7 +6,7 @@ if [[ -f $CONFIG_FILE ]]; then
 fi
 
 GITURL="$(git config --get remote.origin.url)"
-echo "Pulling in latest updates on branch $DISTRO_BRANCH from remote $GITURL."
+echo "Pulling in latest updates on branch $PROJECT_BUILDER_BRANCH from remote $GITURL."
  
 # Change to git root directory.
 cd "$(git rev-parse --show-toplevel)"

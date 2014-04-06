@@ -6,7 +6,7 @@ if [[ -f $CONFIG_FILE ]]; then
 fi
 
 GITURL="$(git config --get remote.$PROJECT_INTEGRATION_REMOTE.url)"
-echo "Pulling in latest updates on branch $DISTRO_BRANCH from remote $GITURL."
+echo "Putting changes to remote $GITURL from branch $PROJECT_BUILDER_BRANCH."
  
 # Change to git root directory.
 cd "$(git rev-parse --show-toplevel)"
