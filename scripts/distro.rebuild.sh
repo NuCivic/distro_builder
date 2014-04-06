@@ -1,6 +1,6 @@
 #!/bin/bash
 # Include configuration.
-CONFIG_FILE="scripts/builder.conf"
+CONFIG_FILE="config/builder.conf"
 if [[ -f $CONFIG_FILE ]]; then
   . $CONFIG_FILE
 fi
@@ -10,7 +10,7 @@ MAKEPATH="projects/$DISTRO/build-$DISTRO.make"
 if [ "$MAKEFILE" == "default" ] || [ "$MAKEFILE" == "" ]; then
   MAKEPATH="projects/$DISTRO/build-$DISTRO.make"
 elif [ "$MAKEFILE" == "override" ]; then
-  MAKEPATH="scripts/override.make"
+  MAKEPATH="config/override.make"
 else
   MAKEPATH="scripts/$MAKEFILE"
 fi

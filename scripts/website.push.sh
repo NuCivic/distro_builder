@@ -1,6 +1,6 @@
 #!/bin/bash
 # Include configuration.
-CONFIG_FILE="scripts/builder.conf"
+CONFIG_FILE="config/builder.conf"
 if [[ -f $CONFIG_FILE ]]; then
   . $CONFIG_FILE
 fi
