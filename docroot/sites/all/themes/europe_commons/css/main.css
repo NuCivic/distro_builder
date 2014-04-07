@@ -1,0 +1,164 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+.node-type-oc-application .panopoly-image-quarter {
+  float: none;
+  display: inline-block; }
+.node-type-oc-application .field-name-field-oc-logo .panopoly-image-quarter {
+  float: right; }
+.node-type-oc-application .field-label {
+  font-size: 14px;
+  color: #6f6f6f; }
+.node-type-oc-application .burr-flipped-sidebar-content ul.links {
+  padding: 0; }
+  .node-type-oc-application .burr-flipped-sidebar-content ul.links li {
+    list-style-type: none;
+    display: inline; }
+  .node-type-oc-application .burr-flipped-sidebar-content ul.links li:after {
+    content: ", "; }
+  .node-type-oc-application .burr-flipped-sidebar-content ul.links li:last-child:after {
+    content: ""; }
+
+.view-replated-deployments {
+  margin-bottom: 20px; }
+
+nav.navbar-collapse {
+  background: #f9e829;
+  width: 100%;
+  height: 40px; }
+
+.navbar-default {
+  background: transparent;
+  border: none; }
+  .navbar-default nav {
+    float: left; }
+
+.navbar-default .navbar-nav {
+  height: 40px;
+  background: #f9e829; }
+  .navbar-default .navbar-nav li {
+    margin-right: 35px; }
+    .navbar-default .navbar-nav li a {
+      color: black;
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      font-weight: normal !important;
+      font-size: 1.2em;
+      padding: 10px 0px 0 23px;
+      height: 40px; }
+    .navbar-default .navbar-nav li .active {
+      background: transparent; }
+      .navbar-default .navbar-nav li .active a {
+        color: black; }
+      .navbar-default .navbar-nav li .active:hover {
+        background: #f9e829; }
+  .navbar-default .navbar-nav li.li-138, .navbar-default .navbar-nav li.li-138:active {
+    background: transparent url(../images-source/home_dwn.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-138:hover {
+    background: transparent url(../images-source/home_up.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1208 {
+    background: transparent url(../images-source/app_dwn.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1208:hover {
+    background: transparent url(../images-source/app_up.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-140 {
+    background: transparent url(../images-source/org_dwn.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-140:hover {
+    background: transparent url(../images-source/org_up.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1219 {
+    background: transparent url(../images-source/blog_dwn.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1219:hover {
+    background: transparent url(../images-source/blog_up.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1434 {
+    background: transparent url(../images-source/about_dwn.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1434:hover {
+    background: transparent url(../images-source/about_up.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1145 {
+    background: transparent url(../images-source/sign_up.png) no-repeat left center; }
+  .navbar-default .navbar-nav li.li-1145:hover {
+    background: transparent url(../images-source/sign_dwn.png) no-repeat left center; }
+
+#secondary-menu-links {
+  float: right; }
+
+#block-search-form {
+  float: right;
+  padding: 0 0 0 0; }
+  #block-search-form .form-control {
+    display: inline-block; }
+  #block-search-form .form-submit {
+    margin-top: 0em;
+    background: transparent url(../images-source/Search_Yellow.png) no-repeat left top;
+    text-indent: -9999px;
+    margin: 17px 0 0 0;
+    padding-right: 20px;
+    font-size: 200%;
+    border: none; }
+  #block-search-form .form-submit:hover {
+    background: transparent url(../images-source/Search_Green.png) no-repeat left top; }
+  #block-search-form .form-item input.form-text, #block-search-form .form-item textarea {
+    border: none;
+    background: #dbdbdb;
+    height: 32px;
+    width: 200px; }
+  #block-search-form .compact-form-label {
+    font-weight: normal;
+    top: 6px; }
+
+#block-views-opencivic-sponsor-block-1 {
+  margin-bottom: 30px; }
+  #block-views-opencivic-sponsor-block-1 h2 {
+    height: 35px;
+    padding: 10px 0 0 10px;
+    margin: 0 0 1em 0;
+    font-size: 1.1em;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    background-color: #dbdbdb; }
+  #block-views-opencivic-sponsor-block-1 .views-row {
+    display: inline-block;
+    width: 13%; }
+
+.view-opencivic-application-facet-search {
+  display: block;
+  margin-bottom: 40px; }
+  .view-opencivic-application-facet-search .views-row {
+    width: 32%;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #c8c8c8;
+    padding: 5px;
+    margin: 0 5px 10px 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+    .view-opencivic-application-facet-search .views-row .views-field-title {
+      font-size: 1.2em; }
+
+.view-application-list .views-row {
+  margin-bottom: 20px; }
+.view-application-list .views-field-field-oc-logo {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top; }
+.view-application-list .group {
+  display: inline-block;
+  width: 80%; }
+
+.view-story .views-field-title {
+  font-size: 1.5em; }
+
+.pane-service-links {
+  padding-bottom: 15px; }
+  .pane-service-links h2 {
+    font-size: 20px; }
+  .pane-service-links ul {
+    list-style-type: none; }
+    .pane-service-links ul li {
+      margin: 0 5px 0 0;
+      display: inline-block; }
+
+.front .panel-pane .pane-title {
+  color: black;
+  background-color: #f9e829;
+  padding: 3px 0 3px 5px; }
+
+.front .section {
+  margin-bottom: 15px; }
+.front #top-content {
+  height: 0; }
