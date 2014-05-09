@@ -1,15 +1,11 @@
 api = 2
 core = 7.x
 
-; Include Pantheon version of the distro's make file.
-includes[opencivic] = "../projects/opencivic/build-opencivic-pantheon.make"
+; Include distro's make file.
+includes[bear] = "../projects/bear/build-bear.make"
 
-; Use the github repository for the distro makefile.
-projects[opencivic][download][url] = https://github.com/civic-commons/opencivic.git
-; Specify the commit SHA for the revision of the distro used to build the site.
-projects[opencivic][download][revision] = dabe640aae87ba137db790987c63cc0a0f9c2456
-projects[opencivic][patch][] = distro.patch
-
-; To put additional modules, themes and libraries in sites/all, uncomment this line and edit site-includes.make
-; includes[] = sites-includes.make
-
+; Use Pantheon's Drupal 7.28 instead of Bear's version.
+projects[drupal][version] = "7.28"
+projects[drupal][download][type] = git
+projects[drupal][download][url] = https://github.com/pantheon-systems/drops-7.git
+projects[drupal][download][branch] = master
