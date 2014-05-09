@@ -1,0 +1,18 @@
+/**
+ * @file
+ *
+ * Slideshows
+ *
+ */
+/****************
+OUR CUSTOM MIXINS
+*****************/
+/***********
+~VARIABLES
+***********/
+/***********
+~BREAKPOINTS
+***********/
+.flex-control-paging li a.flex-active {
+  background: #f89838;
+}

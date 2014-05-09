@@ -1,0 +1,46 @@
+<?php
+/**
+ * @file
+ * Code for the DOE user feature.
+ */
+
+include_once 'doe_user.features.inc';
+
+/**
+* Implements hook_form_alter().
+*/
+// function doe_user_form_alter(&$form, &$form_state, $form_id) {
+// 	switch ($form_id) {
+// 		case 'user_register_form':
+//     	$node = node_load(7);
+//     	$terms = field_view_field('node', $node, 'body', array('label'=>'hidden'));
+//     	$output = render($terms);
+//     	$form['terms'] = array(
+// 			  '#type' => 'checkbox',
+// 			  '#title' => t('Check here to confirm that you have read, understood and affirm the Terms & Conditions'),
+// 			  '#prefix' => '<div class="terms"><h3>Terms & Conditions</h3>' . t($output),
+// 			  '#suffix' => '</div>',
+// 			  '#required' => TRUE,
+// 			  '#weight' => 10,
+// 			);
+//     	break;
+//   }
+// }
+
+/**
+ * Implements hook_form_FORM_ID_alter() 
+ */
+function doe_user_form_profile2_edit_main_form_alter(&$form, &$form_state) {
+	$node = node_load(7);
+	$terms = field_view_field('node', $node, 'body', array('label'=>'hidden'));
+	$output = render($terms);
+  $form['profile_main']['field_confirmation'] = array(
+	  '#type' => 'checkbox',
+	  '#title' => t('Check here to confirm that you have read, understood and affirm the Terms & Conditions'),
+	  '#prefix' => '<div class="terms"><h3>Terms & Conditions</h3>' . t($output),
+	  '#suffix' => '</div>',
+	  '#required' => TRUE,
+	  '#description' => "",
+	  '#weight' => 100,
+	);
+}

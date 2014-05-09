@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the DOE Internship feature.
+ */
+
+include_once 'doe_internship.features.inc';

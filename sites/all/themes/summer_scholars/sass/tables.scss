@@ -1,0 +1,40 @@
+/**
+ * @file
+ * Table and Data List Styling
+ */
+
+@import "base";
+
+dl {
+  margin:0;
+  padding:0;
+  clear:both;
+  overflow:hidden;
+}
+dt {
+  margin:0;
+  padding:8px 5px;
+  float:left;
+  width:28%;
+}
+dd {
+  margin:0;
+  padding:8px 5px;
+  float:left;
+  width:68%;
+}
+dt:nth-of-type(2n),
+dd:nth-of-type(2n) {
+  background:$doe-light;
+}
+
+form th {
+  border-bottom: 3px solid $border;
+  vertical-align: bottom;
+}
+tr.even, tr.odd {
+  border-bottom: 1px solid $border;
+}
+tr.odd {
+  background-color: lighten($doe-blue,35%);
+}

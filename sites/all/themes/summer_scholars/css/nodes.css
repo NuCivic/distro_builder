@@ -1,0 +1,112 @@
+/*
+ * NODES
+ */
+/****************
+OUR CUSTOM MIXINS
+*****************/
+/***********
+~VARIABLES
+***********/
+/***********
+~BREAKPOINTS
+***********/
+.field-name-body img {
+  margin: 5px 15px;
+}
+.field-name-body a {
+  text-decoration: underline;
+}
+.field-name-body tbody,
+.field-name-body table tr {
+  border: none;
+}
+.field-name-body td {
+  vertical-align: top;
+}
+.field-name-body td p {
+  margin-top: 0;
+}
+
+.node-2 p {
+  margin: 0 0 1.5em 1.5em;
+}
+
+@media (max-width: 400px) {
+  .node-type-internship .field-name-field-hosting-department .field-label,
+  .node-type-internship .field-name-field-openings .field-label,
+  .node-type-internship .field-name-field-supervisor-email-address .field-label,
+  .node-type-internship .field-name-field-supervisor-name .field-label,
+  .node-type-internship .field-name-field-supervisor-phone .field-label,
+  .node-type-internship .field-name-field-address .field-label {
+    width: 100%;
+    display: block;
+  }
+}
+.node-type-internship .field-name-field-hosting-department,
+.node-type-internship .field-name-field-openings,
+.node-type-internship .field-name-field-supervisor-email-address,
+.node-type-internship .field-name-field-supervisor-name,
+.node-type-internship .field-name-field-supervisor-phone {
+  border-top: 1px solid #edf3f9;
+  padding: 4px;
+}
+.node-type-internship .field-name-field-hosting-department .field-label,
+.node-type-internship .field-name-field-openings .field-label,
+.node-type-internship .field-name-field-supervisor-email-address .field-label,
+.node-type-internship .field-name-field-supervisor-name .field-label,
+.node-type-internship .field-name-field-supervisor-phone .field-label {
+  width: 250px;
+}
+.node-type-internship .field-name-field-additional-skills,
+.node-type-internship .field-type-taxonomy-term-reference {
+  margin-top: 1em;
+}
+.node-type-internship .field-name-field-additional-skills .field-items,
+.node-type-internship .field-type-taxonomy-term-reference .field-items {
+  margin-left: 1em;
+}
+.node-type-internship .field-name-field-additional-skills .field-items .field-item,
+.node-type-internship .field-type-taxonomy-term-reference .field-items .field-item {
+  padding-left: 20px;
+  position: relative;
+}
+.node-type-internship .field-name-field-additional-skills .field-items .field-item:before,
+.node-type-internship .field-type-taxonomy-term-reference .field-items .field-item:before {
+  content: "\f046";
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #6698cd;
+}
+.node-type-internship .field-name-field-address {
+  margin: 1em 0;
+}
+.node-type-internship .field-name-field-address .field-items {
+  margin-left: 1em;
+}
+
+.field-name-field-skills-utilized {
+  margin-top: 1em;
+}
+.field-name-field-skills-utilized ul {
+  margin: 0;
+}
+
+.field-name-field-documents {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-background-clip: padding-box;
+  background: #eff2f1;
+  border: 1px solid #d1d3d2;
+  margin: 1em;
+  padding: 1em;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+ul.links {
+  margin-top: 2em;
+  display: block;
+}

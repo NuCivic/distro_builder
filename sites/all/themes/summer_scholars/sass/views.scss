@@ -1,0 +1,51 @@
+/*
+ * VIEWS
+ */
+ @import "base";
+
+ .view-schools {
+	.views-field-title h2 {
+		margin:5px 0;
+	}
+	.views-field-body {
+		margin-bottom: 3em;
+	}
+}
+.view-administer-internships .views-table,
+.view-internships .views-table {
+	width:100%;
+}
+.view-administer-internships .views-table caption {
+	background:$doe-navy;
+	color:#fff;
+	padding:4px;
+	margin:2em 0 0;
+}
+
+.view-case-studies,
+.view-blog {
+	.field-name-field-image {
+		float:right;
+		margin-left: 2em;
+	}
+	.links .node-readmore a {
+		position: relative;
+		padding-right:15px;
+		&:before {
+			content:"\f105";
+			font-family: $fa-font;
+			position: absolute;
+			top:-2px;
+			right:0;
+		}
+	}
+}
+.view-profile {
+	margin-bottom:1.5em;
+  .views-field-field-image {
+    float:right;
+  }
+  h2 {
+    margin:0;
+  }
+}

@@ -1,0 +1,570 @@
+/**
+ * @file
+ * Form Styling
+ */
+/****************
+OUR CUSTOM MIXINS
+*****************/
+/***********
+~VARIABLES
+***********/
+/***********
+~BREAKPOINTS
+***********/
+.form-item {
+  /* Wrapper for a form element (or group of form elements) and its label */
+  margin: 1em 0;
+}
+.form-item input {
+  max-width: 99%;
+  color: #333333;
+}
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  /* Highlight the form elements that caused a form submission error */
+  border: 1px solid #c00;
+}
+.form-item label {
+  /* The label for a form element */
+  display: block;
+}
+.form-item label.option {
+  /* The label for a radio button or checkbox */
+  display: inline;
+  font-weight: normal;
+}
+.form-item .form-required {
+  /* The part of the label that indicates a required field */
+  color: #c00;
+}
+.form-item .description {
+  /* The descriptive help text (separate from the label) */
+  font-size: 80%;
+  font-style: italic;
+  color: #777777;
+}
+.form-item .form-file {
+  font-size: 90%;
+}
+.form-checkboxes .form-item, .form-radios .form-item {
+  /* Pack groups of checkboxes and radio buttons closer together */
+  margin: 0;
+  /* Drupal core uses "0.4em 0" */
+}
+.form-item .form-text {
+  min-height: 25px;
+  line-height: 25px;
+  border: 1px solid #b3cce6;
+}
+.form-item select {
+  border-color: #b3cce6;
+}
+.form-item .field-add-more-submit {
+  text-shadow: none;
+  color: white;
+}
+
+.form-text:focus, .form-text:hover, .form-text:active, .form-textarea:focus, .form-textarea:hover, .form-textarea:active {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-text:focus, .form-textarea:focus {
+  border: 1px solid #61AEE2;
+}
+
+div.addressfield-container-inline > div.form-item {
+  margin: 0 1em 0 0;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  color: #fff;
+}
+
+.form-submit {
+  font-size: 90%;
+  padding: 0.2em 1.1em 0.3em 1.2em;
+  display: inline-block;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF6698CD', endColorstr='#FF32659B');
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2OThjZCIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSIjMmM1ODg3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#6698cd, #2c5887 70%);
+  background: -webkit-linear-gradient(#6698cd, #2c5887 70%);
+  background: linear-gradient(#6698cd, #2c5887 70%);
+  -moz-box-shadow: #a0bfe0 0 1px 0 inset;
+  -webkit-box-shadow: #a0bfe0 0 1px 0 inset;
+  box-shadow: #a0bfe0 0 1px 0 inset;
+  border: 1px solid #264c74;
+  color: white;
+  text-shadow: #23466a 0 -1px 0;
+  margin: 0 5px 0 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-submit:hover {
+  text-decoration: none;
+}
+.form-submit:hover {
+  background-color: #264c74;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIzJSIgc3RvcC1jb2xvcj0iIzUzOGJjNyIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMjY0Yzc0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#538bc7 3%, #264c74 75%);
+  background: -webkit-linear-gradient(#538bc7 3%, #264c74 75%);
+  background: linear-gradient(#538bc7 3%, #264c74 75%);
+}
+.form-submit:active {
+  -moz-box-shadow: #224469 0 1px 2px inset;
+  -webkit-box-shadow: #224469 0 1px 2px inset;
+  box-shadow: #224469 0 1px 2px inset;
+}
+.form-submit.disabled, .form-submit[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  background: #2c5887;
+  cursor: default;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-submit::-moz-focus-inner {
+  padding: 0 !important;
+  margin: -1px !important;
+}
+.form-submit:hover {
+  font-size: 90%;
+  padding: 0.2em 1.1em 0.3em 1.2em;
+  display: inline-block;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF3B87DA', endColorstr='#FF1C5593');
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNiODdkYSIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSIjMWM1NTkzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#3b87da, #1c5593 70%);
+  background: -webkit-linear-gradient(#3b87da, #1c5593 70%);
+  background: linear-gradient(#3b87da, #1c5593 70%);
+  -moz-box-shadow: #7cafe6 0 1px 0 inset;
+  -webkit-box-shadow: #7cafe6 0 1px 0 inset;
+  box-shadow: #7cafe6 0 1px 0 inset;
+  border: 1px solid #18497e;
+  color: white;
+  text-shadow: #123760 0 -1px 0;
+}
+.form-submit:hover:hover {
+  text-decoration: none;
+}
+.form-submit:hover:hover {
+  background-color: #18497e;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIzJSIgc3RvcC1jb2xvcj0iIzI4N2FkMyIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMTg0OTdlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#287ad3 3%, #18497e 75%);
+  background: -webkit-linear-gradient(#287ad3 3%, #18497e 75%);
+  background: linear-gradient(#287ad3 3%, #18497e 75%);
+}
+.form-submit:hover:active {
+  -moz-box-shadow: #154171 0 1px 2px inset;
+  -webkit-box-shadow: #154171 0 1px 2px inset;
+  box-shadow: #154171 0 1px 2px inset;
+}
+.form-submit:hover.disabled, .form-submit:hover[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  background: #1c5593;
+  cursor: default;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-submit:hover::-moz-focus-inner {
+  padding: 0 !important;
+  margin: -1px !important;
+}
+
+a.button {
+  font-size: 90%;
+  padding: 0.2em 1.1em 0.3em 1.2em;
+  display: inline-block;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF6698CD', endColorstr='#FF32659B');
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2OThjZCIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSIjMmM1ODg3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#6698cd, #2c5887 70%);
+  background: -webkit-linear-gradient(#6698cd, #2c5887 70%);
+  background: linear-gradient(#6698cd, #2c5887 70%);
+  -moz-box-shadow: #a0bfe0 0 1px 0 inset;
+  -webkit-box-shadow: #a0bfe0 0 1px 0 inset;
+  box-shadow: #a0bfe0 0 1px 0 inset;
+  border: 1px solid #264c74;
+  color: white;
+  text-shadow: #23466a 0 -1px 0;
+  margin: 0 5px 0 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  line-height: 1.15em;
+  color: #fff;
+  text-decoration: none;
+}
+a.button:hover {
+  text-decoration: none;
+}
+a.button:hover {
+  background-color: #264c74;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIzJSIgc3RvcC1jb2xvcj0iIzUzOGJjNyIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMjY0Yzc0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#538bc7 3%, #264c74 75%);
+  background: -webkit-linear-gradient(#538bc7 3%, #264c74 75%);
+  background: linear-gradient(#538bc7 3%, #264c74 75%);
+}
+a.button:active {
+  -moz-box-shadow: #224469 0 1px 2px inset;
+  -webkit-box-shadow: #224469 0 1px 2px inset;
+  box-shadow: #224469 0 1px 2px inset;
+}
+a.button.disabled, a.button[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  background: #2c5887;
+  cursor: default;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.button::-moz-focus-inner {
+  padding: 0 !important;
+  margin: -1px !important;
+}
+a.button:hover {
+  font-size: 90%;
+  padding: 0.2em 1.1em 0.3em 1.2em;
+  display: inline-block;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF3B87DA', endColorstr='#FF1C5593');
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNiODdkYSIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSIjMWM1NTkzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#3b87da, #1c5593 70%);
+  background: -webkit-linear-gradient(#3b87da, #1c5593 70%);
+  background: linear-gradient(#3b87da, #1c5593 70%);
+  -moz-box-shadow: #7cafe6 0 1px 0 inset;
+  -webkit-box-shadow: #7cafe6 0 1px 0 inset;
+  box-shadow: #7cafe6 0 1px 0 inset;
+  border: 1px solid #18497e;
+  color: white;
+  text-shadow: #123760 0 -1px 0;
+  color: #fff;
+}
+a.button:hover:hover {
+  text-decoration: none;
+}
+a.button:hover:hover {
+  background-color: #18497e;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIzJSIgc3RvcC1jb2xvcj0iIzI4N2FkMyIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMTg0OTdlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(#287ad3 3%, #18497e 75%);
+  background: -webkit-linear-gradient(#287ad3 3%, #18497e 75%);
+  background: linear-gradient(#287ad3 3%, #18497e 75%);
+}
+a.button:hover:active {
+  -moz-box-shadow: #154171 0 1px 2px inset;
+  -webkit-box-shadow: #154171 0 1px 2px inset;
+  box-shadow: #154171 0 1px 2px inset;
+}
+a.button:hover.disabled, a.button:hover[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  background: #1c5593;
+  cursor: default;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.button:hover::-moz-focus-inner {
+  padding: 0 !important;
+  margin: -1px !important;
+}
+a.button:visited {
+  color: #fff;
+}
+
+html.js input.form-autocomplete {
+  background-position: 100% 5px;
+}
+
+.ajax-progress .throbber {
+  background-position: 0px -18px;
+}
+
+.container-inline div,
+.container-inline label {
+  /* Inline labels and form divs */
+  display: inline;
+}
+.container-inline .select2-container {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.container-inline .select2-display-none {
+  display: none;
+}
+
+dd {
+  margin: 10px 0 10px 30px;
+}
+
+.tips {
+  /* Tips for Drupal's input formats */
+}
+
+a.button {
+  /* Buttons used by contrib modules like Media */
+}
+
+fieldset {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background: #fff;
+  border-color: #6698cd;
+  margin-bottom: 15px;
+  padding: 0;
+}
+fieldset legend {
+  -moz-border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 6px;
+  border-radius: 6px 6px 0 0;
+  float: left;
+  background: #edf3f9;
+  width: 100%;
+  margin-bottom: 10px;
+}
+fieldset legend .fieldset-legend {
+  padding: 5px 10px;
+  display: block;
+}
+fieldset .fieldset-wrapper {
+  padding: 15px;
+}
+fieldset.filter-wrapper {
+  padding: 0;
+  font-size: 90%;
+  background: #f9f9f9;
+}
+fieldset.filter-wrapper .fieldset-wrapper {
+  padding: 5px;
+  border-top: 1px dotted #C0C0C0;
+}
+fieldset.filter-wrapper .filter-help {
+  padding: 0 20px 0 0;
+}
+fieldset.filter-wrapper .form-item {
+  padding-top: 0;
+  margin-top: 5px;
+}
+
+.ckeditor_links {
+  font-size: 90%;
+}
+
+.vertical-tabs ul.vertical-tabs-list li a {
+  text-decoration: none;
+}
+.vertical-tabs ul.vertical-tabs-list li a:hover {
+  text-decoration: none;
+  outline: none;
+  color: #61AEE2;
+}
+.vertical-tabs ul.vertical-tabs-list li a strong {
+  font-weight: normal;
+}
+.vertical-tabs ul.vertical-tabs-list li a .summary {
+  font-size: 90%;
+  font-style: italic;
+  color: #777777;
+}
+
+html.js fieldset.collapsed {
+  border: 1px solid #CCCCCC;
+  height: 2.15em;
+}
+
+/*
+ * Password confirmation
+ */
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/*
+ * Search (search-block-form.tpl.php)
+ */
+#block-search-form {
+  /* Wrapper for the search form */
+}
+
+/*
+ * Drupal's default login form block
+ */
+#user-login-form {
+  text-align: left;
+  /* LTR */
+  /*
+   * OpenID
+   *
+   * The default styling for the OpenID login link seems to assume Garland's
+   * styling of list items.
+   */
+}
+#user-login-form ul {
+  /* OpenID creates a new ul above the login form's links. */
+  margin-bottom: 0;
+  /* Position OpenID's ul next to the rest of the links. */
+}
+html.js #user-login-form li.openid-link,
+#user-login-form li.openid-link {
+  /* The "Log in using OpenID" link. */
+  margin-top: 1.5em;
+  margin-left: -20px;
+  /* LTR */
+  /* Un-do some of the padding on the ul list. */
+}
+#user-login-form li.user-link {
+  /* The "Cancel OpenID login" link. */
+  margin-top: 1.5em;
+}
+
+#user-login ul {
+  margin: 1.5em 0;
+}
+
+#intern-work-fields tbody {
+  border: none;
+}
+#intern-work-fields td .form-item {
+  margin: 0;
+}
+#intern-work-fields td label.option {
+  font-weight: bold;
+}
+#intern-work-fields tr {
+  border-bottom: 1px solid #b3cce6;
+}
+
+/*
+ * Drupal admin tables
+ *
+ * We overrode these styles in normalize.css, but restore them for the admin
+ * section of the site.
+ */
+form table {
+  width: 100%;
+}
+form table .item-list ul {
+  margin: 0;
+}
+
+/*
+ * Drupal core wrongly puts this in system.menus.css. Since we override that, add it back.
+ */
+td.menu-disabled {
+  background: #ccc;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font-size: .9em;
+}
+
+.context-plugins .context-plugin-form .form-checkboxes {
+  float: left;
+}
+
+.terms {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-background-clip: padding-box;
+  background: #eff2f1;
+  border: 1px solid #d1d3d2;
+  margin: 1em;
+  padding: 1em;
+  margin: 1em 0;
+  padding: 1em 1em 0;
+}
+.terms h3 {
+  margin: 0 0 5px;
+}
+.terms .field-name-body {
+  font-size: 12px;
+}
+
+.node-internship-form .ui-accordion .ui-accordion-header a {
+  padding: .25em .5em .25em 2em;
+}
+.node-internship-form .ui-state-default {
+  background: #fff;
+  border: 1px solid #b3cce6;
+  background-image: none;
+}
+.node-internship-form .ui-state-hover {
+  background: #edf3f9;
+  border: 1px solid #6698cd;
+  background-image: none;
+}
+.node-internship-form .ui-state-active {
+  background: #fff;
+  border: 1px solid #6698cd;
+  background-image: none;
+}
+.node-internship-form .ui-accordion .ui-accordion-content {
+  border: 1px solid #6698cd;
+  border-top: none;
+}
+.node-internship-form .field-group-format-toggler a:hover {
+  background: #edf3f9;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.node-internship-form .field-group-format-wrapper {
+  padding: 10px 0;
+}
+.node-internship-form .field-group-format-wrapper .form-item {
+  margin: 0 2em;
+}
+.node-internship-form .form-type-checkbox label.option {
+  font-size: .8em;
+}
+
+#user-profile-form .field-type-addressfield fieldset,
+.summer-scholars-user-register-form-wrapper .field-type-addressfield fieldset {
+  border: none;
+}
+#user-profile-form .field-name-field-permission .form-item .description,
+.summer-scholars-user-register-form-wrapper .field-name-field-permission .form-item .description {
+  color: #343434;
+  display: inline;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1em;
+  margin-left: .5em;
+}
+#user-profile-form .field-name-field-website .form-item,
+.summer-scholars-user-register-form-wrapper .field-name-field-website .form-item {
+  margin: 0 0 1.5em 0;
+}
+
+.views-exposed-form .views-exposed-widget {
+  display: inline-block;
+}

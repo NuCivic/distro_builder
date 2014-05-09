@@ -1,0 +1,158 @@
+<?php
+/**
+ * @file
+ * This module populates the contents of fields based on node "templates".
+ *
+ * Authorized users can check a "template" checkbox to designate a particular
+ * node as a "template." Other content creators can select one of the designated
+ * templates from a "job type" select list when creating a node, and their
+ * selection will be used to populate node fields. After a node is saved, the
+ * "job type" select list will be hidden so that it can no longer be used.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function node_populate_permission() {
+  return array(
+    'define node populate templates' => array(
+      'title' => t('Define node populate templates'),
+      'description' => t('Define nodes that can be used as templates to auto-popuulate fields in other nodes.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ */
+function node_populate_form_internship_node_form_alter(&$form, $form_state, $form_id) {
+  // Hide job type field if the node has already been saved.
+  if ($form['nid']['#value']) {
+    $form['field_job_type']['#access'] = 0;
+  }
+  // Only show Template checkbox to authorized users.
+  if (!user_access('define node populate templates')) {
+    $form['field_template']['#access'] = 0;
+  }
+
+  // Populate contact and address fields from user account.
+  global $user;
+  $profile = profile2_load_by_user($user, 'main');
+  if (empty($form['field_supervisor_email_address']['und'][0]['email']['#default_value']) && isset($profile->field_supervisor_email_address['und'][0]['email'])) {
+    $form['field_supervisor_email_address']['und'][0]['email']['#default_value'] = $profile->field_supervisor_email_address['und'][0]['email'];
+  }
+  if (empty($form['field_supervisor_name']['und'][0]['value']['#default_value']) && isset($profile->field_supervisor_name['und'][0]['value'])) {
+    $form['field_supervisor_name']['und'][0]['value']['#default_value'] = $profile->field_supervisor_name['und'][0]['value'];
+  }
+  if (empty($form['field_supervisor_phone']['und'][0]['value']['#default_value']) && isset($profile->field_supervisor_phone['und'][0]['value'])) {
+    $form['field_supervisor_phone']['und'][0]['value']['#default_value'] = $profile->field_supervisor_phone['und'][0]['value'];
+  }
+  // Address fields.
+  if (empty($form['field_address']['und'][0]['#address']['thoroughfare'])) {
+    $form['field_address']['und'][0]['#address']['country'] = $profile->field_address['und'][0]['country'];
+    $form['field_address']['und'][0]['#address']['administrative_area'] = $profile->field_address['und'][0]['administrative_area'];
+    $form['field_address']['und'][0]['#address']['sub_administrative_area'] = $profile->field_address['und'][0]['sub_administrative_area'];
+    $form['field_address']['und'][0]['#address']['locality'] = $profile->field_address['und'][0]['locality'];
+    $form['field_address']['und'][0]['#address']['dependent_locality'] = $profile->field_address['und'][0]['dependent_locality'];
+    $form['field_address']['und'][0]['#address']['postal_code'] = $profile->field_address['und'][0]['postal_code'];
+    $form['field_address']['und'][0]['#address']['thoroughfare'] = $profile->field_address['und'][0]['thoroughfare'];
+    $form['field_address']['und'][0]['#address']['premise'] = $profile->field_address['und'][0]['premise'];
+    $form['field_address']['und'][0]['#address']['sub_premise'] = $profile->field_address['und'][0]['sub_premise'];
+    $form['field_address']['und'][0]['#address']['organisation_name'] = $profile->field_address['und'][0]['organisation_name'];
+    $form['field_address']['und'][0]['#address']['name_line'] = $profile->field_address['und'][0]['name_line'];
+    $form['field_address']['und'][0]['#address']['first_name'] = $profile->field_address['und'][0]['first_name'];
+    $form['field_address']['und'][0]['#address']['last_name'] = $profile->field_address['und'][0]['last_name'];
+  }
+
+  // Add AJAX to alter form when job type is chnged.
+  $form['#prefix'] = '<div id="node-populate-form">';
+  $form['#suffix'] = '</div>';
+  $form['field_job_type']['und']['#ajax'] = array(
+    // When 'event' occurs, Drupal will perform an ajax request in the
+    // background. Usually the default value is sufficient (eg. change for
+    // select elements), but valid values include any jQuery event,
+    // most notably 'mousedown', 'blur', and 'submit'.
+    // 'event' => 'change',
+    'callback' => 'node_populate_dependent_dropdown_callback',
+    'wrapper' => 'node-populate-form',
+    'method' => 'replace',
+  );
+  // Hide term title displays.
+  $form['field_database_office_terms']['und']['#title_display'] = 'invisible';
+  $form['field_web_development_term']['und']['#title_display'] = 'invisible';
+  $form['field_collaboration_term']['und']['#title_display'] = 'invisible';
+  $form['field_marketing_term']['und']['#title_display'] = 'invisible';
+  $form['field_market_research_term']['und']['#title_display'] = 'invisible';
+  $form['field_media_event_term']['und']['#title_display'] = 'invisible';
+  $form['field_it_services_term']['und']['#title_display'] = 'invisible';
+  $form['field_interpersonal_skills']['und']['#title_display'] = 'invisible';
+}
+
+/**
+ * Callback for AJAX response to selection of a job type.
+ */
+function node_populate_dependent_dropdown_callback($form, $form_state) {
+  if ($form['field_job_type']['und']['#value'] > 0) {
+    $form['field_job_type']['#access'] = 0;
+    $template = node_load($form['field_job_type']['und']['#value']);
+
+    // Set value for Title.
+    if (empty($form['title']['#value'])) {
+      $form['title']['#value'] = $template->title;
+    }
+
+    // Set value for Body.
+    if (empty($form['body']['und'][0]['value']['#value'])) {
+      $form['body']['und'][0]['value']['#value'] = $template->body['und'][0]['value'];
+    }
+
+    // Set value for Hosting Department.
+    if (empty($form['field_hosting_department']['und'][0]['value']['#value'])) {
+      $form['field_hosting_department']['und'][0]['value']['#value'] = $template->field_hosting_department['und'][0]['value'];
+    }
+
+    // Uncomment the following line to set a value for number of openings.
+    // $form['field_openings']['und'][0]['value']['#value'] = $template->field_openings['und'][0]['value'];
+
+    // Populate job skill taxonomy terms.
+    node_populate_populate_terms($form, $template, 'field_database_office_terms');
+    node_populate_populate_terms($form, $template, 'field_web_development_term');
+    node_populate_populate_terms($form, $template, 'field_collaboration_term');
+    node_populate_populate_terms($form, $template, 'field_marketing_term');
+    node_populate_populate_terms($form, $template, 'field_market_research_term');
+    node_populate_populate_terms($form, $template, 'field_media_event_term');
+    node_populate_populate_terms($form, $template, 'field_it_services_term');
+    node_populate_populate_terms($form, $template, 'field_interpersonal_skills');
+    drupal_set_message(t("Some of the fields in this form have been auto-populated based on the '%title' job type that you selected. Feel free to make your own further modifications before you submit this internship opportunity.", array(
+      '%title' => $template->title,
+    )));
+  }
+  return $form;
+}
+
+/**
+ * Populate a taxonomy term reference field from a template node.
+ *
+ * This function ADDS checked terms from the template node, but it does
+ * not uncheck terms that have already been checked.
+ *
+ * @param Array $form
+ *   The form array.
+ * @param Node $template
+ *   The template node from which values should be taken.
+ * @param Array $field_name
+ *   The name of the term reference field to be populated.
+ */
+function node_populate_populate_terms(&$form, $template, $field_name) {
+  // It's kind of unbelievable that Drupal makes me do all this work
+  // just to check the correct taxonomy terms in a node form, but oh well.
+  $template_terms = array();
+  foreach ($template->{$field_name}['und'] as $term) {
+    $template_terms[$term['tid']] = $term['tid'];
+  }
+  foreach (array_keys($form[$field_name]['und']) as $key) {
+    if (is_numeric($key)) {
+      $form[$field_name]['und'][$key]['#checked'] = $template_terms[$key] ? 1 : $form[$field_name]['und'][$key]['#checked'];
+    }
+  }
+}

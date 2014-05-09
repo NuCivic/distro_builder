@@ -1,0 +1,6 @@
+name = Node populate
+description = "Defines templates that can be used as the basis to autopopulate node fields"
+core = 7.x
+package = DOE
+files[] = node_populate.module
+version = "7.x-1.x-dev"
