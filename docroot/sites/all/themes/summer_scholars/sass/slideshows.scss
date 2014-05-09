@@ -1,0 +1,12 @@
+/**
+ * @file
+ *
+ * Slideshows
+ *
+ */
+
+@import "base";
+
+.flex-control-paging li a.flex-active {
+  background: $doe-orange;
+}

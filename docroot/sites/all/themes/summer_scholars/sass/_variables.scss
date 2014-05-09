@@ -1,0 +1,51 @@
+/***********
+~VARIABLES
+***********/
+
+$doe-green: #80B44E;
+$doe-orange: #F89838;
+$doe-blue: #6698CD;
+$doe-navy: #1C5593;
+$doe-light: lighten($doe-blue,35%);
+$grey: #EFF2F1;
+$greyer: #d1d3d2;
+$dark: #343434;
+$whitey: #f9f9f9;
+$border: lighten($doe-blue,20%);
+$vertical-gutter: 10px 0;
+$sb-padding: 0.2em 1.1em 0.3em 1.2em;  // Button padding
+
+$success: #77b277; //green
+$warning: #cc0000; //red
+
+// @font-face {
+//     font-family: 'league_gothic';
+//     src: url('../fonts/leaguegothicweb-webfont.eot');
+//     src: url('../fonts/leaguegothicweb-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../fonts/leaguegothicweb-webfont.woff') format('woff'),
+//          url('../fonts/leaguegothicweb-webfont.ttf') format('truetype'),
+//          url('../fonts/leaguegothicweb-webfont.svg#league_gothicregular') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+
+// }
+//@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+$header-font: 'PT Sans Narrow', 'league_gothic', 'Arial Narrow', Arial, sanserif;
+$quote: Georgia, "Times New Roman", Times, serif;
+$fineprint: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$fa-font: 'FontAwesome';
+
+/***********
+~BREAKPOINTS
+***********/
+// create $breakpoint variables like so
+// assume min-width (by default) if only a number
+
+$breakpoint-small-width: max-width 400px;
+$breakpoint-med-small-width: max-width  650px;
+$breakpoint-medium-width: max-width 800px;
+$breakpoint-large-width: max-width 1000px;
+$breakpoint-full-width: max-width 1200px;
+
+// Min-width for responsive wide screen
+$desktop: min-width 801px;

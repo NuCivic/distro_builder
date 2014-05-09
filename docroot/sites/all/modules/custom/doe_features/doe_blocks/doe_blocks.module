@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the DOE blocks, menus, and context. feature.
+ */
+
+include_once 'doe_blocks.features.inc';

@@ -1,0 +1,59 @@
+/*
+ * VIEWS
+ */
+/****************
+OUR CUSTOM MIXINS
+*****************/
+/***********
+~VARIABLES
+***********/
+/***********
+~BREAKPOINTS
+***********/
+.view-schools .views-field-title h2 {
+  margin: 5px 0;
+}
+.view-schools .views-field-body {
+  margin-bottom: 3em;
+}
+
+.view-administer-internships .views-table,
+.view-internships .views-table {
+  width: 100%;
+}
+
+.view-administer-internships .views-table caption {
+  background: #1c5593;
+  color: #fff;
+  padding: 4px;
+  margin: 2em 0 0;
+}
+
+.view-case-studies .field-name-field-image,
+.view-blog .field-name-field-image {
+  float: right;
+  margin-left: 2em;
+}
+.view-case-studies .links .node-readmore a,
+.view-blog .links .node-readmore a {
+  position: relative;
+  padding-right: 15px;
+}
+.view-case-studies .links .node-readmore a:before,
+.view-blog .links .node-readmore a:before {
+  content: "\f105";
+  font-family: "FontAwesome";
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+
+.view-profile {
+  margin-bottom: 1.5em;
+}
+.view-profile .views-field-field-image {
+  float: right;
+}
+.view-profile h2 {
+  margin: 0;
+}

@@ -1,0 +1,95 @@
+/*
+ * NODES
+ */
+ @import "base";
+
+.field-name-body {
+	img {
+		margin: 5px 15px;
+	}
+	a {
+		text-decoration: underline;
+	}
+	tbody,
+	table tr {
+		border:none;
+	}
+	td {
+		vertical-align: top;
+		p {
+			margin-top:0;
+		}
+	}
+}
+
+// FAQ page answers indented.
+.node-2 p {
+  margin:0 0 1.5em 1.5em;
+}
+
+.node-type-internship {
+	@include breakpoint ($breakpoint-small-width) {
+		.field-name-field-hosting-department .field-label,
+		.field-name-field-openings .field-label,
+		.field-name-field-supervisor-email-address .field-label,
+		.field-name-field-supervisor-name .field-label,
+		.field-name-field-supervisor-phone .field-label,
+		.field-name-field-address .field-label {
+			width:100%;
+			display: block;
+		}
+	}
+	.field-name-field-hosting-department,
+	.field-name-field-openings,
+	.field-name-field-supervisor-email-address,
+	.field-name-field-supervisor-name,
+	.field-name-field-supervisor-phone {
+		border-top:1px solid lighten($border, 15%);
+		padding:4px;
+		.field-label {
+			width:250px;
+		}
+	}
+	.field-name-field-additional-skills,
+	.field-type-taxonomy-term-reference {
+		margin-top:1em;
+		.field-items {
+			margin-left:1em;
+			.field-item {
+				padding-left:20px;
+				position:relative;
+				&:before {
+					content:"\f046";
+					font-family: $fa-font;
+					position:absolute;
+					top:0;
+					left:0;
+					color:$doe-blue;
+				}
+			}
+		}
+	}
+	.field-name-field-address {
+		margin:1em 0;
+		.field-items {
+			margin-left: 1em;
+		}
+	}
+}
+
+.field-name-field-skills-utilized {
+	margin-top: 1em;
+	ul {
+		margin:0;
+	}
+}
+
+.field-name-field-documents {
+	@include well;
+	margin:1em 0;
+	padding:1em;
+}
+ul.links {
+	margin-top:2em;
+	display:block;
+}

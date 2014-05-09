@@ -1,0 +1,390 @@
+/**
+ * @file
+ * Form Styling
+ */
+
+@import "base";
+
+
+.form-item { /* Wrapper for a form element (or group of form elements) and its label */
+  margin: 1em 0;
+  input {
+    max-width: 99%;
+    color: #333333;
+  }
+  input.error,
+  textarea.error,
+  select.error { /* Highlight the form elements that caused a form submission error */
+    border: 1px solid #c00;
+  }
+  label { /* The label for a form element */
+    display: block;
+  }
+
+  label.option { /* The label for a radio button or checkbox */
+    display: inline;
+    font-weight: normal;
+  }
+
+  .form-required { /* The part of the label that indicates a required field */
+    color: #c00;
+  }
+
+  .description { /* The descriptive help text (separate from the label) */
+    font-size: 80%;
+    font-style: italic;
+    color: #777777;
+  }
+  .form-file {
+    //color: #666666;
+    font-size: 90%;
+  }
+  .form-checkboxes & ,
+  .form-radios & { /* Pack groups of checkboxes and radio buttons closer together */
+    margin: 0; /* Drupal core uses "0.4em 0" */
+  }
+  .form-text {
+    min-height: 25px;
+    line-height: 25px;
+    border: 1px solid $border;
+  }
+  select {
+    border-color: $border;
+  }
+  .field-add-more-submit {
+    text-shadow: none;
+    color: white;
+  }
+}
+.form-text, .form-textarea {
+  &:focus, &:hover, &:active {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  &:focus {
+    border: 1px solid #61AEE2;
+  }
+}
+div.addressfield-container-inline > div.form-item {
+  margin:0 1em 0 0;
+}
+
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+  color: #fff;
+}
+.form-submit {
+  @include sassy-button("matte", 5px, 90%, $doe-blue, darken($doe-blue,25%), #fff);
+  margin:0 5px 0 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  &:hover {
+    @include sassy-button("matte", 5px, 90%, lighten($doe-navy,20%), $doe-navy, #fff);
+  }
+}
+
+a.button {
+  @include sassy-button("matte", 5px, 90%, $doe-blue, darken($doe-blue,25%), #fff);
+  margin:0 5px 0 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  line-height: 1.15em;
+  color:#fff;
+  text-decoration: none;
+  &:hover {
+    @include sassy-button("matte", 5px, 90%, lighten($doe-navy,20%), $doe-navy, #fff);
+    color:#fff;
+  }
+  &:visited {
+    color: #fff;
+  }
+}
+
+html.js input.form-autocomplete {
+    background-position: 100% 5px;
+}
+
+.ajax-progress .throbber {
+  background-position: 0px -18px;
+}
+
+.container-inline {
+  div,
+  label { /* Inline labels and form divs */
+    display: inline;
+  }
+  .select2-container {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .select2-display-none {
+    display: none;
+  }
+}
+dd {
+    margin: 10px 0 10px 30px;
+}
+.tips { /* Tips for Drupal's input formats */
+}
+
+a.button { /* Buttons used by contrib modules like Media */
+  //@include appearance(button);
+}
+
+fieldset {
+  @include border-radius(6px);
+  background: #fff;
+  border-color: $doe-blue;
+  margin-bottom: 15px;
+  padding: 0;
+  legend {
+    @include border-radius(6px 6px 0 0);
+    float: left;
+    background: $doe-light;
+    width: 100%;
+    margin-bottom: 10px;
+    .fieldset-legend {
+      padding: 5px 10px;
+      display: block;
+    }
+  }
+  .fieldset-wrapper {
+    padding: 15px;
+  }
+  &.filter-wrapper {
+    padding: 0;
+    font-size: 90%;
+    background: #f9f9f9;
+    .fieldset-wrapper {
+      padding: 5px;
+      border-top: 1px dotted #C0C0C0;
+    }
+    .filter-help {
+      padding: 0 20px 0 0;
+    }
+    .form-item {
+      padding-top: 0;
+      margin-top: 5px;
+    }
+  }
+}
+.ckeditor_links {
+  font-size: 90%;
+}
+
+.vertical-tabs {
+  ul.vertical-tabs-list {;
+    li {
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          outline: none;
+          color: #61AEE2;
+        }
+        strong {
+          font-weight: normal;
+        }
+        .summary {
+          font-size: 90%;
+          font-style: italic;
+          color: #777777;
+        }
+      }
+    }
+  }
+}
+html.js fieldset.collapsed {
+  border: 1px solid #CCCCCC;
+  height: 2.15em;
+}
+
+/*
+ * Password confirmation
+ */
+
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/*
+ * Search (search-block-form.tpl.php)
+ */
+
+#block-search-form { /* Wrapper for the search form */
+}
+
+/*
+ * Drupal's default login form block
+ */
+
+#user-login-form {
+  text-align: left; /* LTR */
+
+  /*
+   * OpenID
+   *
+   * The default styling for the OpenID login link seems to assume Garland's
+   * styling of list items.
+   */
+
+  ul { /* OpenID creates a new ul above the login form's links. */
+    margin-bottom: 0; /* Position OpenID's ul next to the rest of the links. */
+  }
+
+  html.js & li.openid-link,
+  li.openid-link { /* The "Log in using OpenID" link. */
+    margin-top: 1.5em;
+    margin-left: -20px; /* LTR */ /* Un-do some of the padding on the ul list. */
+  }
+
+  li.user-link { /* The "Cancel OpenID login" link. */
+    margin-top: 1.5em;
+  }
+}
+
+#user-login ul {
+  margin: 1.5em 0;
+}
+
+#intern-work-fields {
+  tbody {
+    border:none;
+  }
+  td{
+    .form-item {
+      margin:0;
+    }
+    label.option {
+      font-weight: bold;
+    }
+  }
+  tr {
+    border-bottom: 1px solid $border;
+  }
+}
+
+/*
+ * Drupal admin tables
+ *
+ * We overrode these styles in normalize.css, but restore them for the admin
+ * section of the site.
+ */
+
+form {
+  table {
+    width: 100%;
+
+  }
+  table .item-list ul {
+    margin: 0;
+  }
+}
+
+@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  .lt-ie8 tr.even,
+  .lt-ie8 tr.odd {
+    th,
+    td {
+      border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
+    }
+  }
+}
+
+/*
+ * Drupal core wrongly puts this in system.menus.css. Since we override that, add it back.
+ */
+
+td.menu-disabled {
+  background: #ccc;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font-size: .9em;
+}
+// Context.
+.context-plugins .context-plugin-form .form-checkboxes {
+  float:left;
+}
+
+// Terms & Conditions
+.terms {
+  @include well;
+  margin:1em 0;
+  padding:1em 1em 0;
+  h3 {
+    margin:0 0 5px;
+  }
+  .field-name-body {
+    font-size: 12px;
+  }
+}
+
+.node-internship-form {
+  .ui-accordion .ui-accordion-header a {
+    padding:.25em .5em .25em 2em;
+  }
+  .ui-state-default {
+    background: #fff;
+    border: 1px solid $border;
+    background-image:none;
+  }
+  .ui-state-hover {
+    background: $doe-light;
+    border: 1px solid $doe-blue;
+    background-image:none;
+  }
+  .ui-state-active {
+    background: #fff;
+    border: 1px solid $doe-blue;
+    background-image:none;
+
+  }
+  .ui-accordion .ui-accordion-content {
+    border: 1px solid $doe-blue;
+    border-top:none;
+  }
+  .field-group-format-toggler a:hover {
+    background: $doe-light;
+    @include border-radius(4px);
+  }
+  .field-group-format-wrapper {
+    padding:10px 0;
+    .form-item {
+      margin:0 2em;
+    }
+  }
+  .form-type-checkbox label.option {
+    font-size: .8em;
+  }
+}
+
+#user-profile-form,
+.summer-scholars-user-register-form-wrapper {
+  .field-type-addressfield fieldset {
+    border:none;
+  }
+  .field-name-field-permission .form-item .description {
+    color: $dark;
+    display:inline;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1em;
+    margin-left: .5em;
+  }
+  .field-name-field-website .form-item {
+    margin:0 0 1.5em 0;
+  }
+}
+
+.views-exposed-form {
+  .views-exposed-widget {
+    display: inline-block;
+  }
+}

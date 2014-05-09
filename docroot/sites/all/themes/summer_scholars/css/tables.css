@@ -1,0 +1,51 @@
+/**
+ * @file
+ * Table and Data List Styling
+ */
+/****************
+OUR CUSTOM MIXINS
+*****************/
+/***********
+~VARIABLES
+***********/
+/***********
+~BREAKPOINTS
+***********/
+dl {
+  margin: 0;
+  padding: 0;
+  clear: both;
+  overflow: hidden;
+}
+
+dt {
+  margin: 0;
+  padding: 8px 5px;
+  float: left;
+  width: 28%;
+}
+
+dd {
+  margin: 0;
+  padding: 8px 5px;
+  float: left;
+  width: 68%;
+}
+
+dt:nth-of-type(2n),
+dd:nth-of-type(2n) {
+  background: #edf3f9;
+}
+
+form th {
+  border-bottom: 3px solid #b3cce6;
+  vertical-align: bottom;
+}
+
+tr.even, tr.odd {
+  border-bottom: 1px solid #b3cce6;
+}
+
+tr.odd {
+  background-color: #edf3f9;
+}
